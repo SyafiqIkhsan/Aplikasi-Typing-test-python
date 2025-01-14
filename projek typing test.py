@@ -13,7 +13,7 @@ texts = [
 class SpeedTestApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("Typing Speed Test")
+        self.root.title("Typing Test")
 
         self.start_time = None
         self.timer_running = False
@@ -38,7 +38,6 @@ class SpeedTestApp:
         self.wpm_label.pack(pady=10)
 
     def start_test(self):
-        """Start the typing test."""
         self.user_input.delete(0, tk.END)
         self.text_to_type = random.choice(texts)
         self.text_label.config(text=self.text_to_type)
@@ -48,7 +47,6 @@ class SpeedTestApp:
         self.user_input.focus()
 
     def check_input(self, event):
-        """Check if the input is correct and calculate WPM."""
         if self.timer_running:
             typed_text = self.user_input.get()
             if typed_text == self.text_to_type:
